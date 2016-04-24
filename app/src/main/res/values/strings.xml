@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">test</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="greeting">welcome to my new app in android.</string>
+    <string name="username">Please enter your username</string>
+    <string name="password">Please enter your password</string>
+    <string name="action_settings">Settings</string>
+</resources>
