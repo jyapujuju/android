@@ -1,5 +1,6 @@
 package com.example.aato.test;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,14 +13,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    @Override
+    private Button myCustomButton;
+    private EditText myCustomUsername;
+    private EditText myCustomPassword;
+    String usrname,pass;
+@Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    myCustomButton = (Button) findViewById(R.id.loginButton);
+        myCustomUsername = (EditText) findViewById(R.id.username);
+        myCustomPassword = (EditText) findViewById(R.id.password);
+
+
+        myCustomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usrname = myCustomUsername.getText().toString().trim();
+                pass = myCustomPassword.getText().toString().trim();
+                System.out.println("password"+pass);
+                if (usrname.isEmpty() || pass.isEmpty()) {
+                    Toast.makeText(MainActivity.this,"fill the boxes",Toast.LENGTH_SHORT).show();
+                }
+                else if (usrname.equals("admin") && pass.equals("admin")){
+                    Toast.makeText(MainActivity.this,"welcome",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"invalid!!",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
